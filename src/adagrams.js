@@ -38,14 +38,13 @@ const Adagrams = {
       }
     }
 
-    for (let i = poolOfLetters.length - 1; i > 0; i -= 1 ) {
-      const j = Math.floor(Math.random() * Math.floor(i));
-      const x = poolOfLetters[j];
-      poolOfLetters[j] = poolOfLetters[i];
-      poolOfLetters[i] = x;
-    }
+    const drawnHand = [];
 
-    return poolOfLetters.slice(0, 10);
+    for (let i = 0; i < 10; i += 1 ) {
+      let index = Math.floor(Math.random() * Math.floor(poolOfLetters.length));
+      drawnHand.push(poolOfLetters[index]);
+    }
+    return drawnHand
   },
 
   usesAvailableLetters(playedWord, handLetters) {
