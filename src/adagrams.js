@@ -48,7 +48,7 @@ const Adagrams = {
   },
 
   usesAvailableLetters(playedWord, handLetters) {
-    const playedWordArray = playedWord.toUpperCase().split('').slice();
+    const playedWordArray = playedWord.toUpperCase().split('')
 
     for (const letter of playedWordArray) {
       if (handLetters.includes(letter)) {
@@ -134,7 +134,7 @@ const Adagrams = {
       word: bestWord,
       score: score
     };
-    
+
   }
 };
 
