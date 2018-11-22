@@ -61,9 +61,8 @@ const Adagrams = {
   },
 
   scoreWord(word) {
-    let score = 0
+    let score = 0;
     const wordArray = word.toUpperCase().split('');
-
     const scoreChart = {
       "A": 1,
       "E": 1,
@@ -96,19 +95,18 @@ const Adagrams = {
     wordArray.forEach((letter) => {
       score += scoreChart[letter]
     });
+
     if (word.length >= 7) {
-      score += 8
+      score += 8;
     }
-    return score
+
+    return score;
   },
+
   highestScoreFrom(words) {
 
     let score = 0;
     let bestWords = [];
-
-    let bestWord;
-    let allLettersUsed;
-    let shortestWord;
 
     for (let word of words) {
       let temp_score = this.scoreWord(word);
@@ -119,6 +117,11 @@ const Adagrams = {
         bestWords.push(word);
       }
     }
+
+    let shortestWord;
+    let allLettersUsed;
+    let bestWord;
+
     if (bestWords.length > 1) {
       shortestWord = bestWords.reduce((a, b) => a.length <= b.length ? a : b);
       allLettersUsed = bestWords.find(word => word.length === 10);
@@ -130,7 +133,8 @@ const Adagrams = {
     return {
       word: bestWord,
       score: score
-    }
+    };
+    
   }
 };
 
