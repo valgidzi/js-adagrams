@@ -49,11 +49,11 @@ const Adagrams = {
 
   usesAvailableLetters(playedWord, handLetters) {
     const playedWordArray = playedWord.toUpperCase().split('').slice();
-    const handLettersCopy = handLetters.slice();
+    // const handLettersCopy = handLetters.slice();
 
     for (const letter of playedWordArray) {
-      if (handLettersCopy.includes(letter)) {
-        handLettersCopy.splice(handLettersCopy.indexOf(letter), 1);
+      if (handLetters.includes(letter)) {
+        handLetters.splice(handLetters.indexOf(letter), 1);
       } else {
         return false;
       }
