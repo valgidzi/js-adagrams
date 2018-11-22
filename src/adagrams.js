@@ -120,18 +120,13 @@ const Adagrams = {
       }
     }
     if (bestWords.length > 1) {
-      allLettersUsed = bestWords.find( (word) => {
-        return word.length === 10;
-      });
-      for (let word of bestWords) {
-        if (shortestWord === undefined || word.length < shortestWord.length) {
-          shortestWord = word;
-        }
-      }
+      shortestWord = bestWords.reduce((a, b) => a.length <= b.length ? a : b);
+      allLettersUsed = bestWords.find(word => word.length === 10);
       bestWord = allLettersUsed === undefined ? shortestWord : allLettersUsed;
     } else {
-      bestWord = bestWords[0];
+      bestWord = bestWords[0]
     }
+
     return {
       word: bestWord,
       score: score
